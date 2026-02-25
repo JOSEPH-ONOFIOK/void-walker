@@ -94,7 +94,19 @@ export function WaitlistForm() {
       setPhase("wallet");
     }
   };
+  const twitterName = form.getValues("twitterName");
 
+const referralLink = `${window.location.origin}/void-walker/?ref=${encodeURIComponent(
+  twitterName
+)}`;
+
+const copyReferral = async () => {
+  await navigator.clipboard.writeText(referralLink);
+  toast({
+    title: "Copied!",
+    description: "Referral link copied to clipboard.",
+  });
+};
   return (
     <div className="max-w-md mx-auto w-full">
       <Form {...form}>
@@ -192,7 +204,7 @@ export function WaitlistForm() {
                 <div className="space-y-2 bg-background/50 p-4 rounded-xl">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono uppercase">
-                      like & quote pinned post containing "Minimals"
+                      like & quote pinned post containing "cherygpt"
                     </span>
                     <Button
                       size="sm"
@@ -314,21 +326,44 @@ export function WaitlistForm() {
             )}
 
             {/* ───────── SUCCESS ───────── */}
-            {phase === "success" && (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-card/50 backdrop-blur-xl p-12 border border-border/50 rounded-2xl text-center"
-              >
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Check className="text-black w-8 h-8" />
-                </div>
-                <h3 className="text-3xl font-display font-bold uppercase">
-                  Manifested
-                </h3>
-              </motion.div>
-            )}
+           {phase === "success" && (
+  <motion.div
+    key="success"
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    className="bg-card/50 backdrop-blur-xl p-12 border border-border/50 rounded-2xl text-center space-y-6"
+  >
+    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto">
+      <Check className="text-black w-8 h-8" />
+    </div>
+
+    <h3 className="text-3xl font-display font-bold uppercase">
+      Manifested
+    </h3>
+
+    {/* 🔥 Referral Section */}
+    <div className="pt-6 border-t border-border/50 space-y-4">
+      <p className="text-sm uppercase font-mono text-muted-foreground">
+        Invite 2 friends & get a chance at guaranteed whitelist
+      </p>
+
+      <div className="bg-background/50 p-4 rounded-xl space-y-3">
+        <Input
+          value={referralLink}
+          readOnly
+          className="text-xs text-center font-mono"
+        />
+
+        <Button
+          onClick={copyReferral}
+          className="w-full bg-white text-black uppercase font-bold"
+        >
+          Copy Referral Link
+        </Button>
+      </div>
+    </div>
+  </motion.div>
+)}
           </AnimatePresence>
         </form>
       </Form>
