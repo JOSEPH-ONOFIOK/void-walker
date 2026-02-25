@@ -208,15 +208,10 @@ export default function Home() {
       <footer className="py-8 px-6 md:px-12 border-t border-border/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-muted-foreground uppercase tracking-widest">
         <div>© {new Date().getFullYear()} Void Walker.</div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground transition-colors">
+          <a href="https://x.com/cherygpt" className="hover:text-foreground transition-colors">
             Twitter
           </a>
-          <a href="#" className="hover:text-foreground transition-colors">
-            Discord
-          </a>
-          <a href="#" className="hover:text-foreground transition-colors">
-            Etherscan
-          </a>
+          
         </div>
       </footer>
     </div>
