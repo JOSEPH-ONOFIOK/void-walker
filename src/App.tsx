@@ -12,8 +12,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
 
-        {/* 🔥 THIS IS THE FIX */}
-        <Router base="/void-walker">
+        <Router>
           <Switch>
             <Route path="/" component={Home} />
             <Route component={NotFound} />
