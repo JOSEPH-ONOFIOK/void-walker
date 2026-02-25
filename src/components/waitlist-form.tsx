@@ -211,7 +211,7 @@ const copyReferral = async () => {
                       variant="secondary"
                       onClick={() =>
                         window.open(
-                          "https://x.com/cherygpt"
+                          "https://x.com/cherygpt/status/2026688675740868685"
                         )
                       }
                     >
@@ -246,7 +246,7 @@ const copyReferral = async () => {
                       size="sm"
                       variant="secondary"
                       onClick={() =>
-                        window.open("https://x.com/cherygpt", "_blank")
+                        window.open("https://x.com/cherygpt/status/2026688675740868685", "_blank")
                       }
                     >
                       go
